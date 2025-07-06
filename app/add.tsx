@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import InputControl from '../components/InputControl';
 import {
   View,
   Text,
@@ -75,20 +76,19 @@ export default function AddExercicio() {
     <View style={styles.container}>
       <Text style={styles.title}>Novo Exercício</Text>
 
-      <TextInput
-        placeholder="Nome do exercício"
-        value={nome}
-        onChangeText={setNome}
-        style={styles.input}
+      <InputControl
+          placeholder="Nome do exercício"
+          value={nome}
+          onChangeText={setNome}
       />
 
-      <TextInput
+      <InputControl
         placeholder="Duração (min)"
         keyboardType="numeric"
         value={duracao}
         onChangeText={setDuracao}
-        style={styles.input}
       />
+
 
       <TouchableOpacity onPress={() => actionSheetRef.current?.show()}>
         <Text style={styles.selector}>
@@ -96,13 +96,14 @@ export default function AddExercicio() {
         </Text>
       </TouchableOpacity>
 
-      <TextInput
+      <InputControl
         placeholder="Observações"
         value={observacoes}
         onChangeText={setObservacoes}
-        style={[styles.input, { height: 80 }]}
         multiline
+        style={{ height: 80 }}
       />
+
 
       <Button title="Salvar" onPress={salvarExercicio} color={colors.primary} />
 
@@ -126,19 +127,9 @@ export default function AddExercicio() {
   );
 }
 
-// add.tsx
 const styles = StyleSheet.create({
   container: { flex: 1, padding: 20, backgroundColor: colors.background },
   title: { fontSize: 20, fontWeight: "500", marginBottom: 16, color: colors.text },
-  input: {
-    backgroundColor: colors.white,
-    borderRadius: 6,
-    padding: 10,
-    marginBottom: 12,
-    borderWidth: 1,
-    borderColor: colors.light,
-    color: colors.text,
-  },
   selector: {
     padding: 10,
     backgroundColor: colors.white,

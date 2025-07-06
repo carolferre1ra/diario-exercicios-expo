@@ -4,6 +4,7 @@ import { useCallback } from "react";
 import ExerciseItem from "../components/ExerciseItem";
 import colors from "../styles/colors";
 import { useExercicios } from "../context/ExercicioContext";
+import AddButton from "../components/AddButton";
 
 export default function Home() {
   const { exercicios, carregarExercicios } = useExercicios();
@@ -25,7 +26,8 @@ export default function Home() {
         ListEmptyComponent={<Text style={styles.empty}>Nenhum exercício cadastrado ainda.</Text>}
       />
 
-      <Link href="/add" style={styles.botaoAdd}>➕ Adicionar</Link>
+    <AddButton />
+
     </View>
   );
 }

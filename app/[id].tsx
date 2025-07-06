@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useState } from "react";
 import { Exercicio } from "../types";
 import colors from "../styles/colors";
+import ExercicioDetalhes from "../components/ExercicioDetalhes";
 
 export default function DetalhesExercicio() {
   const { id } = useLocalSearchParams();
@@ -23,16 +24,7 @@ export default function DetalhesExercicio() {
   }, []);
 
   if (!exercicio) return <Text>Carregando...</Text>;
-
-  return (
-    <View style={styles.container}>
-      <Text style={styles.titulo}>{exercicio.nome}</Text>
-      <Text style={styles.info}>⏱ Duração: {exercicio.duracao} minutos</Text>
-      <Text style={styles.info}>🔥 Nível: {exercicio.nivel}</Text>
-      <Text style={styles.info}>📅 Data: {new Date(exercicio.data).toLocaleString()}</Text>
-      <Text style={styles.info}>📝 Observações: {exercicio.observacoes || "Nenhuma"}</Text>
-    </View>
-  );
+  return <ExercicioDetalhes exercicio={exercicio} />;
 }
 
 const styles = StyleSheet.create({

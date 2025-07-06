@@ -17,7 +17,7 @@ export default function ExerciseItem({ exercicio }: Props) {
         <Text style={styles.separator}>|</Text>
         <Text style={styles.label}>🔥 {exercicio.nivel}</Text>
       </View>
-
+      
       <Text style={styles.date}>
         📅 {new Date(exercicio.data).toLocaleDateString()} às {new Date(exercicio.data).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
       </Text>
@@ -33,7 +33,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderWidth: 1,
     borderColor: colors.light,
-    // Optional: shadow
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.05,
